@@ -1,0 +1,35 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: SimpleGateway
+  cloud:
+    gateway:
+      default-filters:
+        - TokenRelay
+      routes:
+        - id: service_route
+          uri: http://localhost:9191
+          predicates:
+            - Path=/service/**
+  security:
+    oauth2:
+      client:
+        provider:
+          my-keycloak-provider:
+            issuer-uri: http://localhost:8080/realms/My-Realm
+        registration:
+          keycloak-spring-gateway-client:
+            provider: my-keycloak-provider
+            client-id: spring-gateway-client
+            client-secret: ligE6fv7jDbtJcyvJdvGmNBDagZ7VuYw
+            authorization-grant-type: authorization_code
+            redirect-uri: '{baseUrl}/login/oauth2/code/keycloak'
+            scope: openid
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

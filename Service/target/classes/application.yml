@@ -1,0 +1,10 @@
+server:
+  port: 9191
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/My-Realm
+          jwk-set-url: http://localhost:8080/realms/My-Realm/protocol/openid-connect/certs

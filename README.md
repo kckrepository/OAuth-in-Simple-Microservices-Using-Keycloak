@@ -8,17 +8,8 @@ This is simple implementation OAuth in microservices using keycloak, in this imp
  will be protected by keycloak 
  as Authorization server  
     
-____
-  Gateway
-  (client)
- ______
-      |     |            =========
-      |     |            Keycloak (Authorization server)
-      |     _ _ _ _>    ==================
-      \/
-  ______
-      Service
-      (protected resource)
-  ______
+
+<img width="380" alt="image" src="https://user-images.githubusercontent.com/17265754/228782619-96e24d89-6920-4c00-aaf6-588b3149be00.png">
+
       
       
